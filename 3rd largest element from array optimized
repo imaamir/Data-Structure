@@ -1,0 +1,44 @@
+/* Read input from STDIN. Print your output to STDOUT*/
+
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+   public static void main(String args[] ) throws Exception {
+
+	//Write code here 
+   
+   BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
+   int arraySize = Integer.parseInt(br.readLine());
+
+   if(arraySize>2){
+      String arrayInputElements = br.readLine();
+      String arrayElements[] = arrayInputElements.split(" ");
+      int arrayElementsInt[] = new int[arraySize];
+
+      for(int i=0; i<arrayElements.length; i++){
+         String indexedValue = arrayElements[i];
+         arrayElementsInt[i] = Integer.parseInt(indexedValue);
+      }
+      int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE, third = Integer.MIN_VALUE;
+      for(int i = 0; i<arrayElementsInt.length; i++){
+         if(arrayElementsInt[i]>first){
+            third = second;
+            second = first;
+            first = arrayElementsInt[i];
+         }
+         else if(arrayElementsInt[i]>second){
+            third = second;
+            second = arrayElementsInt[i];
+         }
+         else if(arrayElementsInt[i]>third){
+            third = arrayElementsInt[i];
+         }
+      }
+      System.out.println(third);
+   }
+   else{
+      System.out.println("Invalid Input");
+   }
+
+   }
+}
