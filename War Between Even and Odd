@@ -1,0 +1,38 @@
+/* Read input from STDIN. Print your output to STDOUT*/
+
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+   public static void main(String args[] ) throws Exception {
+
+	//Write code here
+
+   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+   int arraySize = Integer.parseInt(br.readLine());
+   if(arraySize>0){
+      String arrayElementsSpace = br.readLine();
+      String arrayElements[] = arrayElementsSpace.split(" ");
+      int sumOdd = 0, sumEven = 0;
+      int array[] = new int[arraySize];
+      for(int i=0;i<arrayElements.length; i++){
+         array[i] = Integer.parseInt(arrayElements[i]);
+         if(array[i]%2 == 0){
+            sumEven = sumEven + array[i];
+         }
+         else{
+            sumOdd = sumOdd + array[i];
+         }
+      }
+      if(sumEven>sumOdd){
+         System.out.println("Even");
+      }
+      else if(sumEven<sumOdd){
+         System.out.println("Odd");
+      }
+      else{
+         System.out.println("Tied");
+      }
+   }
+
+   }
+}
