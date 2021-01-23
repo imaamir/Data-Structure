@@ -1,0 +1,57 @@
+/* Read input from STDIN. Print your output to STDOUT*/
+
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+   public static void main(String args[] ) throws Exception {
+
+	//Write code here 
+   int arrayLength, stdin;
+   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+   stdin = Integer.parseInt(br.readLine());
+   if(stdin>2){
+      String readArrayInput = br.readLine();
+      String arrayElements[] = readArrayInput.split(" ");
+      
+      int arrayElementInt[] = new int[stdin];
+
+      // HashMap<Integer> elements = new HashMap<Integer>();
+
+      for(int i =0; i<arrayElements.length; i++){
+         String arrayElement = arrayElements[i];
+         arrayElementInt[i] = Integer.parseInt(arrayElement);
+      //    elements.put(Integer.parseInt(arrayElement));
+      }
+      
+      int first = arrayElementInt[0];
+      for(int i = 1; i<arrayElementInt.length; i++){
+         if(arrayElementInt[i]>first)
+         {
+            first = arrayElementInt[i];
+         }
+      }
+
+      int second = Integer.MIN_VALUE;
+      for(int i = 0; i<arrayElementInt.length; i++){
+         if(first>arrayElementInt[i] && arrayElementInt[i]>second)
+         {
+            second = arrayElementInt[i];
+         }
+      }
+
+      int third = Integer.MIN_VALUE;
+      for(int i = 0; i<arrayElementInt.length; i++){
+         if(first>arrayElementInt[i] && second>arrayElementInt[i] && arrayElementInt[i]>third)
+         {
+            third = arrayElementInt[i];
+         }
+      }
+
+      System.out.println(third);
+
+   }
+   else{
+      System.out.println("Invalid Input");
+   } 
+   }
+}
